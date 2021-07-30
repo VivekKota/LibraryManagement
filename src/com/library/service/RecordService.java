@@ -19,4 +19,17 @@ public class RecordService {
 		return recordDao.fetchRecords();
 	}
 
+
+	public Record findLatestRecord(int userId) {
+		
+		return recordDao.findLatestRecord(userId);
+	}
+
+
+
+	public List<Record> findUserRecords(int userId) {
+	
+		return recordDao.findUserRecords(userId);
+	}
+
 }

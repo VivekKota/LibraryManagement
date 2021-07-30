@@ -6,13 +6,15 @@ public class Book {
 	private String bookName;
 	private String authorName;
 	private String publication;
-
-	public Book(int bookId, String bookName, String authorName, String publication) {
+	private String availabilty;
+	
+	public Book(int bookId, String bookName, String authorName, String publication, String availabilty) {
 		super();
 		this.bookId = bookId;
 		this.bookName = bookName;
 		this.authorName = authorName;
 		this.publication = publication;
+		this.availabilty = availabilty;
 	}
 
 	public Book() {
@@ -51,10 +53,18 @@ public class Book {
 		this.publication = publication;
 	}
 
+	public String getAvailabilty() {
+		return availabilty;
+	}
+
+	public void setAvailabilty(String availabilty) {
+		this.availabilty = availabilty;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [bookId=" + bookId + ", bookName=" + bookName + ", authorName=" + authorName + ", publication="
-				+ publication + "]";
+				+ publication + ", availabilty=" + availabilty + "]";
 	}
 	
 	

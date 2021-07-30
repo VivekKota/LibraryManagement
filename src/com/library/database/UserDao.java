@@ -10,7 +10,7 @@ import java.util.List;
 import com.library.model.User;
 
 public class UserDao {
-	
+
 	private static UserDao userDao;
 
 	private UserDao() {
@@ -30,22 +30,20 @@ public class UserDao {
 		try {
 
 			Connection con = JDBCConnection.connect();
+
 			PreparedStatement pst = con.prepareStatement("insert into user values(?,?,?)");
 			pst.setInt(1, user.getUserId());
 			pst.setString(2, user.getUserName());
 			pst.setString(3, user.getContactInfo());
 
 			int rows = pst.executeUpdate();
-
 			System.out.println(rows + " rows updated");
 
-			try {
-				con.commit();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			con.commit();
 
 		} catch (Exception e) {
+
+			System.out.println("Error in adding the user ");
 			e.printStackTrace();
 		}
 
@@ -73,6 +71,8 @@ public class UserDao {
 			return null;
 
 		} catch (Exception e) {
+
+			System.out.println("Error in Finding the user ");
 			e.printStackTrace();
 		}
 		return null;
@@ -84,9 +84,11 @@ public class UserDao {
 		try {
 
 			Connection con = JDBCConnection.connect();
+
 			Statement st = con.createStatement();
 			String sql = "Select * from User";
 			ResultSet rs = st.executeQuery(sql);
+
 			List<User> users = new ArrayList<User>();
 			while (rs.next()) {
 
@@ -99,6 +101,8 @@ public class UserDao {
 			return users;
 
 		} catch (Exception e) {
+
+			System.out.println("Error in fetching the user details ");
 			e.printStackTrace();
 		}
 		return null;

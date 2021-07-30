@@ -24,14 +24,21 @@ public class BookService {
 		return bookDao.findBook(bookId);
 	}
 
-	public void issueBook(int bookId, int userId,String status) {
+	public void issueBook(int bookId, int userId) {
 		
-		bookDao.issueBook(bookId,userId,status);
+		bookDao.issueBook(bookId,userId);
 	}
 
 	public List<Book> bookDetails() {
 		
 		return bookDao.bookDetails();
+	}
+
+
+	public void returnBook(int bookId, int userId) {
+		
+		bookDao.returnBook(bookId, userId);
+		
 	}
 
 }
